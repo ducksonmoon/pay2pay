@@ -1,0 +1,9 @@
+base58
+eth-hash<1.0.0,>=0.1.0
+eth-typing<3.0.0,>=1.0.0
+
+[:implementation_name == "cpython"]
+cytoolz<1.0.0,>=0.8.2
+
+[:implementation_name == "pypy"]
+toolz<1,>0.8.2

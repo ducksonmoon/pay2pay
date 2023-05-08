@@ -1,0 +1,190 @@
+{
+  "trc20token_balances": [],
+  "transactions_out": 8,
+  "acquiredDelegateFrozenForBandWidth": 0,
+  "rewardNum": 0,
+  "ownerPermission": {
+    "keys": [
+      {
+        "address": "TLMZG2SVuGdK5ic7ebboJSrdtrtBQNGgZE",
+        "weight": 1
+      }
+    ],
+    "threshold": 1,
+    "permission_name": "owner"
+  },
+  "tokenBalances": [
+    {
+      "amount": "0.000416",
+      "tokenPriceInTrx": 1,
+      "tokenId": "_",
+      "balance": "416",
+      "tokenName": "trx",
+      "tokenDecimal": 6,
+      "tokenAbbr": "trx",
+      "tokenCanShow": 1,
+      "tokenType": "trc10",
+      "vip": false,
+      "tokenLogo": "https://static.tronscan.org/production/logo/trx.png"
+    },
+    {
+      "tokenId": "1004920",
+      "tokenName": "freee.vip",
+      "owner_address": "TTTTTTTokxVDSRdD4cfWDWL7Gi7oG7zdG6",
+      "tokenAbbr": "freee.vip",
+      "tokenCanShow": 1,
+      "transferCount": 11917742,
+      "tokenLogo": "https://static.tronscan.org/production/upload/logo/default.png",
+      "nrOfTokenHolders": 3424121,
+      "balance": "18888888",
+      "tokenDecimal": 6,
+      "tokenType": "trc10",
+      "vip": false
+    }
+  ],
+  "delegateFrozenForEnergy": 0,
+  "balances": [
+    {
+      "amount": "0.000416",
+      "tokenPriceInTrx": 1,
+      "tokenId": "_",
+      "balance": "416",
+      "tokenName": "trx",
+      "tokenDecimal": 6,
+      "tokenAbbr": "trx",
+      "tokenCanShow": 1,
+      "tokenType": "trc10",
+      "vip": false,
+      "tokenLogo": "https://static.tronscan.org/production/logo/trx.png"
+    },
+    {
+      "tokenId": "1004920",
+      "tokenName": "freee.vip",
+      "owner_address": "TTTTTTTokxVDSRdD4cfWDWL7Gi7oG7zdG6",
+      "tokenAbbr": "freee.vip",
+      "tokenCanShow": 1,
+      "transferCount": 11917742,
+      "tokenLogo": "https://static.tronscan.org/production/upload/logo/default.png",
+      "nrOfTokenHolders": 3424121,
+      "balance": "18888888",
+      "tokenDecimal": 6,
+      "tokenType": "trc10",
+      "vip": false
+    }
+  ],
+  "trc721token_balances": [],
+  "balance": 416,
+  "voteTotal": 0,
+  "totalFrozen": 0,
+  "tokens": [
+    {
+      "amount": "0.000416",
+      "tokenPriceInTrx": 1,
+      "tokenId": "_",
+      "balance": "416",
+      "tokenName": "trx",
+      "tokenDecimal": 6,
+      "tokenAbbr": "trx",
+      "tokenCanShow": 1,
+      "tokenType": "trc10",
+      "vip": false,
+      "tokenLogo": "https://static.tronscan.org/production/logo/trx.png"
+    },
+    {
+      "tokenId": "1004920",
+      "tokenName": "freee.vip",
+      "owner_address": "TTTTTTTokxVDSRdD4cfWDWL7Gi7oG7zdG6",
+      "tokenAbbr": "freee.vip",
+      "tokenCanShow": 1,
+      "transferCount": 11917742,
+      "tokenLogo": "https://static.tronscan.org/production/upload/logo/default.png",
+      "nrOfTokenHolders": 3424121,
+      "balance": "18888888",
+      "tokenDecimal": 6,
+      "tokenType": "trc10",
+      "vip": false
+    }
+  ],
+  "delegated": {},
+  "transactions_in": 13,
+  "totalTransactionCount": 18,
+  "representative": {
+    "lastWithDrawTime": 0,
+    "allowance": 0,
+    "enabled": false,
+    "url": ""
+  },
+  "frozenForBandWidth": 0,
+  "reward": 1,
+  "addressTagLogo": "",
+  "allowExchange": [],
+  "address": "TLMZG2SVuGdK5ic7ebboJSrdtrtBQNGgZE",
+  "frozen_supply": [],
+  "bandwidth": {
+    "energyRemaining": 0,
+    "totalEnergyLimit": 90000000000,
+    "totalEnergyWeight": 5528707782,
+    "netUsed": 0,
+    "storageLimit": 0,
+    "storagePercentage": 0.0,
+    "assets": {
+      "1004910": {
+        "netPercentage": 0.0,
+        "netLimit": 0,
+        "netRemaining": 0,
+        "netUsed": 0
+      },
+      "1004920": {
+        "netPercentage": 0.0,
+        "netLimit": 1,
+        "netRemaining": 1,
+        "netUsed": 0
+      }
+    },
+    "netPercentage": 0.0,
+    "storageUsed": 0,
+    "storageRemaining": 0,
+    "freeNetLimit": 1500,
+    "energyUsed": 0,
+    "freeNetRemaining": 1500,
+    "netLimit": 0,
+    "netRemaining": 0,
+    "energyLimit": 0,
+    "freeNetUsed": 0,
+    "totalNetWeight": 38459491046,
+    "freeNetPercentage": 0.0,
+    "energyPercentage": 0.0,
+    "totalNetLimit": 43200000000
+  },
+  "date_created": 1682160000000,
+  "accountType": 0,
+  "exchanges": [],
+  "frozen": {
+    "total": 0,
+    "balances": []
+  },
+  "accountResource": {
+    "frozen_balance_for_energy": {}
+  },
+  "transactions": 21,
+  "witness": 0,
+  "delegateFrozenForBandWidth": 0,
+  "name": "",
+  "frozenForEnergy": 0,
+  "acquiredDelegateFrozenForEnergy": 0,
+  "activePermissions": [
+    {
+      "operations": "7fff1fc0033ec307000000000000000000000000000000000000000000000000",
+      "keys": [
+        {
+          "address": "TLMZG2SVuGdK5ic7ebboJSrdtrtBQNGgZE",
+          "weight": 1
+        }
+      ],
+      "threshold": 1,
+      "id": 2,
+      "type": "Active",
+      "permission_name": "active"
+    }
+  ]
+}
