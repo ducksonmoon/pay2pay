@@ -2,18 +2,8 @@
 
 <form [formGroup]="form">
   <mat-form-field appearance="outline">
-    <mat-label>Name</mat-label>
-    <input matInput formControlName="name" placeholder="John Doe" />
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
     <mat-label>Enter your email</mat-label>
-    <input
-      matInput
-      placeholder="pat@example.com"
-      formControlName="email"
-      required
-    />
+    <input matInput placeholder="pat@example.com" formControlName="email" />
     <mat-error *ngIf="form.invalid">{{ getErrorMessage() }}</mat-error>
   </mat-form-field>
 
@@ -34,6 +24,7 @@
       <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
     </button>
   </mat-form-field>
-
-  <button mat-flat-button color="primary"></button>
+  <div class="button-row">
+    <button mat-flat-button color="primary">Login</button>
+  </div>
 </form>

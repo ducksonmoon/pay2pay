@@ -1,8 +1,4 @@
-<img
-  src="/assets/images/diamond-icon.png"
-  style="max-width: 30%; max-height: 40%; margin-bottom: 8%"
-  alt="diamond-icon"
-/>
+<img src="/assets/images/diamond-icon.png" alt="diamond-icon" />
 <h1>
   <b> TON Wallet </b>
 </h1>
@@ -14,10 +10,19 @@
 <section style="padding-top: 10%">
   <mat-grid-list cols="1" rowHeight="50px">
     <mat-grid-tile>
-      <button mat-flat-button color="primary">Register</button>
+      <button
+        routerLink="register"
+        routerLinkActive="active"
+        mat-flat-button
+        color="primary"
+      >
+        Register
+      </button>
     </mat-grid-tile>
     <mat-grid-tile>
-      <button mat-flat-button>Login</button>
+      <button routerLink="login" routerLinkActive="active" mat-flat-button>
+        Login
+      </button>
     </mat-grid-tile>
   </mat-grid-list>
 </section>

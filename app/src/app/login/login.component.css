@@ -7,3 +7,12 @@ img {
   max-height: 70%;
   margin-bottom: 8%;
 }
+
+.button-row button,
+.button-row a {
+  width: 300px;
+}
+
+.disabled {
+  display: inline-block;
+}
