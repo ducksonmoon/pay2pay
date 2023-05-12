@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {
+  HttpClientModule,
+  HttpClientXsrfModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
+
 import { MatCardModule } from '@angular/material/card';
 import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
@@ -19,6 +25,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { SplashComponent } from './splash/splash.component';
 import { LoginComponent } from './login/login.component';
+import { JwtInterceptor } from 'src/_helpers/jwt-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +37,8 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    HttpClientXsrfModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -46,6 +55,7 @@ import { LoginComponent } from './login/login.component';
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: { appearance: 'outline' },
     },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

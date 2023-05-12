@@ -6,6 +6,7 @@ img {
   max-width: 60%;
   max-height: 70%;
   margin-bottom: 8%;
+  pointer-events: none;
 }
 
 .button-row button,
@@ -15,4 +16,8 @@ img {
 
 .disabled {
   display: inline-block;
+}
+
+.errors {
+  margin: 4%;
 }

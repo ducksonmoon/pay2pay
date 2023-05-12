@@ -1,5 +1,8 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { AccountService } from 'src/_services/account.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  serverSideErrorMessages: Array<string> = [];
   hide = true;
 
-  constructor() {}
+  constructor(private accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -22,8 +26,19 @@ export class LoginComponent implements OnInit {
   });
 
   getErrorMessage() {
-    return this.form.controls.email.hasError('email')
-      ? 'Not a valid email'
-      : '';
+    if (this.form.controls.email.hasError('email')) return 'Not a valid email';
+    return this.form.errors;
+  }
+
+  async logUserIn() {
+    const email = this.form.controls.email.value as string;
+    const password = this.form.controls.password.value as string;
+    this.accountService.getAuthToken(email, password).subscribe({
+      error: (e) => {
+        this.serverSideErrorMessages = Object.values(e.error);
+        this.form.setErrors(this.serverSideErrorMessages);
+      },
+      complete: () => this.router.navigate(['']),
+    });
   }
 }

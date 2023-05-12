@@ -24,7 +24,7 @@ export class AccountService {
 
   login(username: string, password: string) {
     return this.http
-      .post<any>(`${environment.apiUrl}/users/authenticate`, {
+      .post<any>(`${environment.apiUrl}/api-auth/login/`, {
         username,
         password,
       })
@@ -38,6 +38,24 @@ export class AccountService {
       );
   }
 
+  getAuthToken(username: string, password: string) {
+    return this.http
+      .post<any>(`${environment.apiUrl}/auth/api-token-auth/`, {
+        username,
+        password,
+      })
+      .pipe(
+        map((user) => {
+          localStorage.setItem('user', JSON.stringify(user));
+          return user;
+        })
+      );
+  }
+
+  session() {
+    return this.http.get<any[]>(`${environment.apiUrl}/auth/session/`);
+  }
+
   logout() {
     // remove user from local storage and set current user to null
     localStorage.removeItem('user');
@@ -46,7 +64,7 @@ export class AccountService {
   }
 
   register(user: any) {
-    return this.http.post(`${environment.apiUrl}/users/register`, user);
+    return this.http.post(`${environment.apiUrl}/auth/register/`, user);
   }
 
   getAll() {

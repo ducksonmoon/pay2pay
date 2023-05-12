@@ -1,10 +1,9 @@
 <img src="/assets/images/teacher-man-login.gif" alt="teacher-man" />
-
+<h2>Login To Your Account</h2>
 <form [formGroup]="form">
   <mat-form-field appearance="outline">
     <mat-label>Enter your email</mat-label>
     <input matInput placeholder="pat@example.com" formControlName="email" />
-    <mat-error *ngIf="form.invalid">{{ getErrorMessage() }}</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
@@ -24,7 +23,17 @@
       <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
     </button>
   </mat-form-field>
+  <div class="errors">
+    <mat-error *ngIf="form.invalid">{{ getErrorMessage() }}</mat-error>
+  </div>
   <div class="button-row">
-    <button mat-flat-button color="primary">Login</button>
+    <button
+      mat-flat-button
+      (keyup.enter)="logUserIn()"
+      (click)="logUserIn()"
+      color="primary"
+    >
+      Login
+    </button>
   </div>
 </form>

@@ -35,5 +35,17 @@
     </button>
   </mat-form-field>
 
-  <button mat-flat-button color="primary"></button>
+  <div class="errors">
+    <mat-error *ngIf="form.invalid">{{ getErrorMessage() }}</mat-error>
+  </div>
+  <div class="button-row">
+    <button
+      mat-flat-button
+      (keyup.enter)="create()"
+      (click)="create()"
+      color="primary"
+    >
+      Create Account
+    </button>
+  </div>
 </form>
