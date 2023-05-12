@@ -22,9 +22,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './account/register/register.component';
 import { SplashComponent } from './splash/splash.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './account/login/login.component';
 import { JwtInterceptor } from 'src/_helpers/jwt-interceptor.service';
 
 @NgModule({
