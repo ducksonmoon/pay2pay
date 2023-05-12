@@ -25,9 +25,16 @@ SECRET_KEY = "django-insecure-$a1c&=)uq!lk1-dh$%lk^i_m*vj9vbz559lta0ij*-3q5=)8%f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'core.Account'
+ALLOWED_HOSTS=['*']
+CORS_ORIGIN_ALLOW_ALL = True
+
+# ALLOWED_HOSTS=['http://localhost:5000']
+# CORS_ORIGIN_ALLOW_ALL = False
+# CORS_ORIGIN_WHITELIST = (
+#        'http://localhost:5000',
+# )
+AUTH_USER_MODEL = "core.Account"
 
 
 # Application definition
@@ -39,11 +46,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'rest_framework',
-    'rest_framework.authtoken',
-    'core',
-    'account',
-    'transaction'
+    "rest_framework",
+    "rest_framework.authtoken",
+    "corsheaders",
+    "core",
+    "account",
+    "transaction",
 ]
 
 MIDDLEWARE = [
@@ -54,6 +62,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "app.urls"
@@ -107,10 +116,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
     ]
 }
 
