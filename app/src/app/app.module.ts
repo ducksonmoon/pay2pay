@@ -26,6 +26,8 @@ import { RegisterComponent } from './account/register/register.component';
 import { SplashComponent } from './splash/splash.component';
 import { LoginComponent } from './account/login/login.component';
 import { JwtInterceptor } from 'src/_helpers/jwt-interceptor.service';
+import { ProfileComponent } from './transaction/profile/profile.component';
+import { SendComponent } from './transaction/send/send.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { JwtInterceptor } from 'src/_helpers/jwt-interceptor.service';
     RegisterComponent,
     SplashComponent,
     LoginComponent,
+    ProfileComponent,
+    SendComponent,
   ],
   imports: [
     BrowserModule,
