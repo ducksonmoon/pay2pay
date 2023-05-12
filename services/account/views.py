@@ -5,7 +5,6 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
@@ -21,13 +20,11 @@ class AccountViewSet(viewsets.ModelViewSet):
     """
     queryset = Account.objects.all().order_by('-date_joined')
     serializer_class = AccountSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 
 
 class AccountSessionView(APIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, format=None):
         content = {

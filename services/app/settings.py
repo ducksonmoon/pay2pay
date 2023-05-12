@@ -26,14 +26,38 @@ SECRET_KEY = "django-insecure-$a1c&=)uq!lk1-dh$%lk^i_m*vj9vbz559lta0ij*-3q5=)8%f
 DEBUG = True
 
 
-ALLOWED_HOSTS=['*']
-CORS_ORIGIN_ALLOW_ALL = True
+# ALLOWED_HOSTS=['*']
+# CORS_ORIGIN_ALLOW_ALL = True
 
-# ALLOWED_HOSTS=['http://localhost:5000']
-# CORS_ORIGIN_ALLOW_ALL = False
-# CORS_ORIGIN_WHITELIST = (
-#        'http://localhost:5000',
-# )
+ALLOWED_HOSTS = ["http://localhost:4200", "localhost"]
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)
+CORS_ALLOW_HEADERS = (
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+    "Access-Control-Allow-Origin",
+)
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = ("http://localhost:4200",)
+CSRF_TRUSTED_ORIGINS = ["http://localhost:4200"]
+CSRF_USE_SESSIONS = False
+CSRF_COOKIE_HTTPONLY = False  # this is the default, and should be kept this way
+CSRF_COOKIE_NAME = 'XSRF-TOKEN'
+CSRF_HEADER_NAME = 'HTTP_X_XSRF_TOKEN'
+
 AUTH_USER_MODEL = "core.Account"
 
 
