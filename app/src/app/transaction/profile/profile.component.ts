@@ -41,6 +41,7 @@ export class ProfileComponent implements OnInit {
     this.transactionStarted = true;
     this.notFound = false;
     this.transactionTrigerd = false;
+    this.transactionCompleted = false;
   }
 
   triggerTransactio() {

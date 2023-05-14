@@ -8,6 +8,7 @@ mat-progress-spinner {
 }
 
 .main-profile {
+  min-width: 300px;
 }
 
 .process {

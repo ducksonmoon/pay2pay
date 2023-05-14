@@ -1,3 +1,24 @@
-<div class="main">
+<mat-toolbar>
+  <span class="gap">
+    <button mat-icon-button>
+      <mat-icon>home</mat-icon>
+    </button>
+  </span>
+
+  <span class="gap"> Send </span>
+
+  <span class="filler"></span>
+  <span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Info</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </span>
+</mat-toolbar>
+
+<div class="main" [ngStyle]="{ display: isDesktop ? 'flex' : 'block' }">
   <router-outlet></router-outlet>
 </div>

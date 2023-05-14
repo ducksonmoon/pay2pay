@@ -19,6 +19,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -48,6 +50,8 @@ import { TransactionItemsComponent } from './transaction/transaction-items/trans
     HttpClientModule,
     HttpClientXsrfModule,
     MatCardModule,
+    MatToolbarModule,
+    MatMenuModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatFormFieldModule,
