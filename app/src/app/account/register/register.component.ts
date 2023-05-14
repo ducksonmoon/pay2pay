@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
         complete: () => {
           this.accountService.getAuthToken(email, password).subscribe({
             complete: () => {
-              this.router.navigate(['']);
+              this.router.navigate(['/profile']);
             },
           });
         },

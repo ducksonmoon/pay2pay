@@ -1,0 +1,26 @@
+mat-form-field,
+button,
+a {
+  width: 100%;
+}
+
+mat-progress-spinner {
+}
+
+.main-profile {
+}
+
+.process {
+  margin-top: 10px;
+  min-height: 300px;
+  padding: 5%;
+  background-color: #f6fbf4;
+  border-radius: 25px 25px 25px 25px;
+}
+
+.inverted-border-radius {
+  background-color: #f6fbf4;
+  padding: 2%;
+  margin-bottom: 10px;
+  border-radius: 25px 25px 25px 0;
+}

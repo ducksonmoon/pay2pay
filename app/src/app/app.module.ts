@@ -17,6 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -28,6 +30,7 @@ import { LoginComponent } from './account/login/login.component';
 import { JwtInterceptor } from 'src/_helpers/jwt-interceptor.service';
 import { ProfileComponent } from './transaction/profile/profile.component';
 import { SendComponent } from './transaction/send/send.component';
+import { TransactionItemsComponent } from './transaction/transaction-items/transaction-items.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { SendComponent } from './transaction/send/send.component';
     LoginComponent,
     ProfileComponent,
     SendComponent,
+    TransactionItemsComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,8 @@ import { SendComponent } from './transaction/send/send.component';
     HttpClientModule,
     HttpClientXsrfModule,
     MatCardModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,

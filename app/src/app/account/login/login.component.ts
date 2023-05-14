@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         this.serverSideErrorMessages = Object.values(e.error);
         this.form.setErrors(this.serverSideErrorMessages);
       },
-      complete: () => this.router.navigate(['']),
+      complete: () => this.router.navigate(['/profile']),
     });
   }
 }
