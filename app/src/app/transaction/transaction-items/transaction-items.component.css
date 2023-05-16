@@ -1,0 +1,25 @@
+.main-profile {
+    min-width: 300px;
+}
+
+.process {
+    margin-top: 10px;
+    min-height: 300px;
+    padding: 5%;
+    background-color: #f6fbf4;
+    border-radius: 25px 25px 25px 25px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 10px 0 10px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.inverted-border-radius {
+    background-color: #f6fbf4;
+    padding: 2%;
+    margin-bottom: 10px;
+    border-radius: 25px 25px 25px 0;
+}

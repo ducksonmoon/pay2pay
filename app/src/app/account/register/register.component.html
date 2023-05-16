@@ -1,51 +1,53 @@
-<img src="/assets/images/teacher-man-login.gif" alt="teacher-man" />
+<section>
+  <img src="/assets/images/teacher-man-login.gif" alt="teacher-man" />
 
-<form [formGroup]="form">
-  <mat-form-field appearance="outline">
-    <mat-label>Name</mat-label>
-    <input matInput formControlName="name" placeholder="John Doe" />
-  </mat-form-field>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="John Doe" />
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Enter your email</mat-label>
-    <input
-      matInput
-      placeholder="pat@example.com"
-      formControlName="email"
-      required
-    />
-    <mat-error *ngIf="form.invalid">{{ getErrorMessage() }}</mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        formControlName="email"
+        required
+      />
+      <mat-error *ngIf="form.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Enter your password</mat-label>
-    <input
-      matInput
-      formControlName="password"
-      [type]="hide ? 'password' : 'text'"
-    />
-    <button
-      mat-icon-button
-      matSuffix
-      (click)="hide = !hide"
-      [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide"
-    >
-      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-    </button>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        [type]="hide ? 'password' : 'text'"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
 
-  <div class="errors">
-    <mat-error *ngIf="form.invalid">{{ getErrorMessage() }}</mat-error>
-  </div>
-  <div class="button-row">
-    <button
-      mat-flat-button
-      (keyup.enter)="create()"
-      (click)="create()"
-      color="primary"
-    >
-      Create Account
-    </button>
-  </div>
-</form>
+    <div class="errors">
+      <mat-error *ngIf="form.invalid">{{ getErrorMessage() }}</mat-error>
+    </div>
+    <div class="button-row">
+      <button
+        mat-flat-button
+        (keyup.enter)="create()"
+        (click)="create()"
+        color="primary"
+      >
+        Create Account
+      </button>
+    </div>
+  </form>
+</section>

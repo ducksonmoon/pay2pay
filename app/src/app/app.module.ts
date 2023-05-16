@@ -21,6 +21,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -33,6 +34,7 @@ import { JwtInterceptor } from 'src/_helpers/jwt-interceptor.service';
 import { ProfileComponent } from './transaction/profile/profile.component';
 import { SendComponent } from './transaction/send/send.component';
 import { TransactionItemsComponent } from './transaction/transaction-items/transaction-items.component';
+import { NavbarComponent } from './general/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { TransactionItemsComponent } from './transaction/transaction-items/trans
     ProfileComponent,
     SendComponent,
     TransactionItemsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { TransactionItemsComponent } from './transaction/transaction-items/trans
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSidenavModule,
     MatGridListModule,
     MatButtonModule,
     MatDividerModule,

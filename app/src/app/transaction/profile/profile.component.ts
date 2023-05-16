@@ -64,6 +64,8 @@ export class ProfileComponent implements OnInit {
     }, 9000);
 
     this.timer = setInterval(() => {
+      this.spinnerTime += 1;
+
       this.timeLeft -= 1;
     }, 1000);
 

@@ -1,11 +1,9 @@
 <mat-toolbar>
   <span class="gap">
-    <button mat-icon-button>
+    <button mat-icon-button routerLink="profile" routerLinkActive="active">
       <mat-icon>home</mat-icon>
     </button>
   </span>
-
-  <span class="gap"> Send </span>
 
   <span class="filler"></span>
   <span>
@@ -13,12 +11,22 @@
       <mat-icon>person</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>Info</button>
+      <button mat-menu-item routerLink="info" routerLinkActive="active">
+        Info
+      </button>
       <button mat-menu-item (click)="logout()">Logout</button>
     </mat-menu>
   </span>
 </mat-toolbar>
 
-<div class="main" [ngStyle]="{ display: isDesktop ? 'flex' : 'block' }">
+<app-navbar></app-navbar>
+
+<div
+  class="main"
+  [ngStyle]="{
+    display: isDesktop ? 'flex' : 'block',
+    'padding-top': isDesktop ? '20px' : '10px'
+  }"
+>
   <router-outlet></router-outlet>
 </div>
