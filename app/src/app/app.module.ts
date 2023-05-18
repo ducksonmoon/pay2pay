@@ -6,22 +6,10 @@ import {
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 
-import { MatCardModule } from '@angular/material/card';
-import {
-  MAT_FORM_FIELD_DEFAULT_OPTIONS,
-  MatFormFieldModule,
-} from '@angular/material/form-field';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MaterialModule } from './material-module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -35,6 +23,8 @@ import { ProfileComponent } from './transaction/profile/profile.component';
 import { SendComponent } from './transaction/send/send.component';
 import { TransactionItemsComponent } from './transaction/transaction-items/transaction-items.component';
 import { NavbarComponent } from './general/navbar/navbar.component';
+import { CheckComponent } from './transaction/check/check.component';
+import { ReciveComponent } from './transaction/recive/recive.component';
 
 @NgModule({
   declarations: [
@@ -46,27 +36,18 @@ import { NavbarComponent } from './general/navbar/navbar.component';
     SendComponent,
     TransactionItemsComponent,
     NavbarComponent,
+    CheckComponent,
+    ReciveComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientXsrfModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatProgressSpinnerModule,
-    MatSnackBarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSidenavModule,
-    MatGridListModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatIconModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    MaterialModule,
   ],
   providers: [
     {

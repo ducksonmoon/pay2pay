@@ -1,0 +1,39 @@
+<main>
+  <section class="action">
+    <img src="assets/images/hero.webp" alt="not-found" style="width: 120px" />
+    <br />
+    <small style="color: white">based on TRON's network</small>
+  </section>
+
+  <section class="info">
+    <section class="box" *ngIf="!isSubmited">
+      <h3 style="text-align: left; display: flex; align-items: center">
+        <mat-icon>assignment</mat-icon> Recive Request
+      </h3>
+      <form [formGroup]="form">
+        <mat-form-field>
+          <mat-label>Amount</mat-label>
+          <input matInput formControlName="amount" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Wallet Address</mat-label>
+          <input matInput rows="6" formControlName="address" />
+        </mat-form-field>
+      </form>
+      <button mat-stroked-button color="primary" (click)="submit()">
+        Submit
+      </button>
+    </section>
+
+    <section *ngIf="isSubmited">
+      <img
+        src="assets/images/success.png"
+        style="margin-top: 20%"
+        height="100px"
+        width="100px"
+      />
+      <br />
+      <p style="margin-top: 3%">Successfully Submited.</p>
+    </section>
+  </section>
+</main>

@@ -19,14 +19,13 @@
   </span>
 </mat-toolbar>
 
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar> -->
 
-<div
-  class="main"
+<main
   [ngStyle]="{
     display: isDesktop ? 'flex' : 'block',
     'padding-top': isDesktop ? '20px' : '10px'
   }"
 >
   <router-outlet></router-outlet>
-</div>
+</main>

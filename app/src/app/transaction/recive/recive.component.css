@@ -1,0 +1,27 @@
+main {
+    background-color: #212A3E;
+}
+
+.action {
+    height: 25vh;
+    background-color: #212A3E;
+}
+
+.info {
+    background-color: #F1F6F9;
+    height: 75vh;
+    border-radius: 20px 20px 0 0;
+    padding: 10px;
+}
+
+.box {
+    position: relative;
+    top: 30%;
+    transform: translateY(-30%);
+}
+
+mat-form-field,
+a,
+button {
+    width: 100%;
+}

@@ -1,1 +1,198 @@
-<p>send works!</p>
+<!-- <div class="main-profile">
+  <div class="inverted-border-radius">
+    <img
+      src="assets/images/tether-logo.png"
+      alt="not-found"
+      style="width: 120px"
+    />
+    <br />
+    <small style="color: #3c486b">based on TRON's network</small>
+  </div>
+  <div style="display: block">
+    <button mat-flat-button (click)="startTransactio()" color="primary">
+      Recive
+    </button>
+    <button mat-flat-button (click)="startTransactio()" color="primary">
+      Send
+    </button>
+  </div>
+
+  <div class="process" *ngIf="!transactionCompleted">
+    <ng-container *ngIf="notFound">
+      <img
+        src="assets/images/not-found-tranasction.png"
+        alt="not-found"
+        width="100%"
+        height="100%"
+        style="pointer-events: none"
+      />
+      <p style="color: #687ed4">No Active Transaction Found !!!</p>
+    </ng-container>
+
+    <ng-container *ngIf="transactionStarted && !transactionTrigerd">
+      <form [formGroup]="form">
+        <mat-form-field appearance="outline">
+          <mat-label>USDT</mat-label>
+          <input matInput placeholder="14.26751" formControlName="amount" />
+          <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+      </form>
+      <p style="text-align: left">Guide:</p>
+      <ol style="text-align: left">
+        <li>Enter the amount of Tether (USDT) you want to transfer.</li>
+        <li>
+          Transfer to this wallet address:
+          <mat-form-field (click)="copyWalletAdress()">
+            <input matInput disabled [value]="walletAdress" />
+            <mat-icon matSuffix>file_copy</mat-icon>
+            <mat-hint>Click to copy</mat-hint>
+          </mat-form-field>
+        </li>
+        <li>
+          Then Keep the transaction ID, You should Enter that in next step.
+        </li>
+      </ol>
+      <a mat-stroked-button (click)="triggerTransactio()">Next Step</a>
+    </ng-container>
+
+    <ng-container *ngIf="transactionTrigerd && transactionStarted">
+      <p style="text-align: left">
+        If you have transferd
+        <strong> {{ this.form.controls.amount.value }} USDT </strong>
+        to our Wallet.
+        <br />
+        Please enter your Transaction ID and submit the form.
+      </p>
+      <form [formGroup]="form">
+        <mat-form-field>
+          <mat-label>Transaction ID</mat-label>
+          <textarea
+            matInput
+            rows="6"
+            formControlName="transactionID"
+          ></textarea>
+        </mat-form-field>
+      </form>
+
+      <ng-container *ngIf="waitForTransaction">
+        <strong>{{ clock }}</strong>
+
+        <div style="display: flex; justify-content: center; padding-bottom: 5%">
+          <mat-progress-spinner
+            [color]="'primary'"
+            [mode]="'determinate'"
+            [value]="spinnerTime"
+          >
+          </mat-progress-spinner>
+        </div>
+
+        <button
+          style="margin-top: 7%"
+          mat-stroked-button
+          color="primary"
+          (click)="cancelTransfer()"
+        >
+          Cancel
+        </button>
+      </ng-container>
+
+      <button
+        *ngIf="!waitForTransaction"
+        mat-stroked-button
+        color="primary"
+        (click)="checkIfTransferCompleted()"
+      >
+        Submit
+      </button>
+    </ng-container>
+  </div>
+
+  <div class="process" *ngIf="transactionCompleted">
+    <img
+      src="assets/images/success.png"
+      style="margin-top: 20%"
+      height="100px"
+      width="100px"
+    />
+    <br />
+    <p style="margin-top: 3%">Successfully Completed</p>
+  </div>
+</div> -->
+
+<!-- <section class="not_found">
+  <ng-container *ngIf="notFound">
+    <img
+      src="assets/images/thinkin.webp"
+      alt="not-found"
+      width="40%"
+      height="40%"
+      style="pointer-events: none"
+    />
+    <p>No Active Transaction Found !!!</p>
+  </ng-container>
+</section> -->
+
+<main>
+  <section class="action">
+    <img src="assets/images/hero.webp" alt="not-found" style="width: 120px" />
+    <br />
+    <small style="color: white">based on TRON's network</small>
+  </section>
+
+  <section class="info">
+    <section *ngIf="!transactionTrigerd" class="box">
+      <form [formGroup]="form">
+        <mat-form-field appearance="outline">
+          <mat-label>USDT</mat-label>
+          <input matInput placeholder="14.26751" formControlName="amount" />
+          <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+      </form>
+      <p style="text-align: left">Guide:</p>
+      <ol style="text-align: left">
+        <li>Enter the amount of Tether (USDT) you want to transfer.</li>
+        <li>
+          Transfer to this wallet address:
+          <mat-form-field (click)="copyWalletAdress()">
+            <input matInput disabled [value]="walletAdress" />
+            <mat-icon matSuffix>file_copy</mat-icon>
+            <mat-hint>click to copy</mat-hint>
+          </mat-form-field>
+        </li>
+        <li>
+          Then Keep the transaction ID, You should Enter that in next step.
+        </li>
+      </ol>
+      <a mat-stroked-button (click)="triggerTransaction()">Next Step</a>
+    </section>
+
+    <section *ngIf="transactionTrigerd" class="box">
+      <p style="text-align: left">
+        If you have transferd
+        <strong> {{ this.form.controls.amount.value }} USDT </strong>
+        to our Wallet.
+        <br />
+        Please enter your Transaction ID and submit the form.
+      </p>
+      <form [formGroup]="form">
+        <mat-form-field>
+          <mat-label>Transaction ID</mat-label>
+          <textarea
+            matInput
+            rows="6"
+            formControlName="transactionID"
+          ></textarea>
+        </mat-form-field>
+      </form>
+      <button
+        mat-stroked-button
+        (click)="startTransaction()"
+        color="primary"
+        routerLink="check"
+        routerLinkActive="active"
+      >
+        Submit
+      </button>
+    </section>
+  </section>
+</main>

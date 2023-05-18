@@ -1,5 +1,5 @@
-<div class="main-profile">
-  <div class="inverted-border-radius">
+<!-- <div class="main-profile"> -->
+<!-- <div class="inverted-border-radius">
     <img
       src="assets/images/tether-logo.png"
       alt="not-found"
@@ -15,9 +15,9 @@
     <button mat-flat-button (click)="startTransactio()" color="primary">
       Send
     </button>
-  </div>
+  </div> -->
 
-  <div class="process" *ngIf="!transactionCompleted">
+<!-- <div class="process" *ngIf="!transactionCompleted">
     <ng-container *ngIf="notFound">
       <img
         src="assets/images/not-found-tranasction.png"
@@ -116,5 +116,80 @@
     />
     <br />
     <p style="margin-top: 3%">Successfully Completed</p>
-  </div>
-</div>
+  </div> -->
+<!-- </div> -->
+
+<main>
+  <section class="action">
+    <section class="balance">
+      <p>USDT Balance</p>
+      <img
+        src="/assets/images/diamond-icon.png"
+        alt="diamond-icon"
+        width="8%"
+        height="8%"
+      />
+      <h2 style="display: inline-flex">0.2354</h2>
+    </section>
+
+    <div class="buttons">
+      <button
+        mat-flat-button
+        color="primary"
+        routerLink="/recive"
+        routerLinkActive="active"
+      >
+        Recive
+      </button>
+      <button
+        mat-flat-button
+        color="primary"
+        routerLink="/send"
+        routerLinkActive="active"
+      >
+        Send
+      </button>
+    </div>
+  </section>
+
+  <section class="info">
+    <ng-container *ngIf="transactions.length === 0">
+      <img
+        class="img_run"
+        src="assets/images/run.webp"
+        alt="not-found"
+        width="35%"
+        height="35%"
+        style="pointer-events: none"
+      />
+      <section class="message">
+        <h2>Wallet Created</h2>
+        <small style="color: gray">Yaay Start Transferring USDT</small>
+      </section>
+    </ng-container>
+
+    <ng-container *ngIf="transactions?.length !== 0">
+      <div *ngFor="let item of transactions">
+        <section class="table">
+          <p>March 1</p>
+          <span>
+            <img
+              src="/assets/images/diamond-icon.png"
+              alt="diamond-icon"
+              width="4%"
+              height="4%"
+            />
+            <strong style="color: #245953">
+              {{ item?.amount }}
+            </strong>
+            <small style="color: #394867"> from </small>
+          </span>
+          <br />
+          <p>{{ item?.from }}</p>
+          <span class="badge"> successful </span>
+        </section>
+        <hr />
+      </div>
+    </ng-container>
+  </section>
+</main>

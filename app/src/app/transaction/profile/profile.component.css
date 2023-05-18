@@ -1,15 +1,13 @@
-mat-form-field,
+/* mat-form-field,
 a {
   width: 100%;
 }
 
-button {
-  margin-right: 2%;
-  width: 48%;
-}
+
 
 .main-profile {
   min-width: 300px;
+  height: 100vh;
 }
 
 .process {
@@ -25,4 +23,78 @@ button {
   padding: 2%;
   margin-bottom: 10px;
   border-radius: 25px 25px 25px 0;
+} */
+
+main{
+  background-color: #212A3E;
+}
+
+.action{
+  height: 35vh;
+  background-color: #212A3E;
+}
+
+.info{
+  background-color: #F1F6F9;
+  height: 65vh;
+  border-radius: 20px 20px 0 0;
+}
+
+.balance {
+  position: relative;
+  color: white;
+  top: 30%;
+}
+
+.buttons {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttons button:last-child {
+  margin-left: 10px;
+}
+
+button {
+  width: 45%;
+}
+
+.mat-flat-button.mat-primary{
+  background-color: #24a3ff
+}
+
+.img_run {
+  position: relative;
+  top: 30%;
+  transform: translateY(-30%);
+}
+
+.message {
+  position: relative;
+  top: 30%;
+  transform: translateY(-30%);
+}
+
+.table {
+  text-align: left;
+  padding: 0px 0px 10px 15px;
+}
+.table:first-child {
+  padding-top: 10px;
+}
+
+.badge {
+  background-color: #98D8AA;
+  color: white;
+  padding: 1%;
+  border-radius: 10px 10px 10px 10px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  padding: 0;
 }

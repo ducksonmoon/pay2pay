@@ -13,11 +13,6 @@ export class AppComponent {
     return this.innerWidth > 750;
   }
 
-  // @HostListener('window:resize', ['$event'])
-  // onResize(_event: any) {
-  //   this.innerWidth = window.innerWidth;
-  // }
-
   constructor(private accountService: AccountService) {
     this.innerWidth = window.innerWidth;
   }
