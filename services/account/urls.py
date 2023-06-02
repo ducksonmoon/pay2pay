@@ -6,6 +6,6 @@ from rest_framework.authtoken import views
 
 urlpatterns = [
     path('register/', AccountViewSet.as_view({'post': 'create'})),
-    path('session/', AccountSessionView.as_view()),
+    path('create-session/', AccountSessionView.as_view()),
     path('api-token-auth/', CustomAuthToken.as_view())
 ]

@@ -1,37 +1,33 @@
 from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import generics
+
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
-from account.serializers import AccountSerializer
+from account.serializers import AccountSerializer, SessionSerializer
 from core.models import Account
 
 
 class AccountViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
     queryset = Account.objects.all().order_by('-date_joined')
     serializer_class = AccountSerializer
 
 
+class AccountSessionView(generics.UpdateAPIView):
+    def get_object(self):
+        return get_object_or_404(Account, email=self.request.data.get('email'))
 
-class AccountSessionView(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-
-    def get(self, request, format=None):
-        content = {
-            'user': str(request.user),
-            'auth': str(request.auth),
-        }
-        return Response(content)
+    def get_serializer_class(self):
+        return SessionSerializer
 
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
