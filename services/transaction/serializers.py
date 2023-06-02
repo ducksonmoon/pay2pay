@@ -6,19 +6,20 @@ from core.models import Transaction
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
-        fields = ["amount", "ref", "txid"]
+        fields = ["amount", "ref", "txid", "action", "receiver"]
         read_only_fields = ["ref"]
 
     def create(self, validated_data):
-        receiver = "sag2sag"
         user = self.context["user"]
         payload = dict(
             trigger=user,
             sender=user.wallet,
-            receiver=receiver,
+            receiver=validated_data["receiver"],
             txid=validated_data["txid"],
             amount=validated_data["amount"],
+            action=validated_data["action"],
         )
+
         return Transaction.objects.create(**payload)
 
 

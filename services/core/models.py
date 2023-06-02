@@ -34,6 +34,24 @@ class Transaction(models.Model):
     created_time = models.DateTimeField(default=datetime.datetime.now(), editable=False)
     expire_time = models.DateTimeField(default=datetime.datetime.now() + datetime.timedelta(minutes=15), editable=False)
     ref = models.CharField(max_length=150, unique=True, default=uuid.uuid4)
-
+    TRANSACTION_TYPE = [
+        (1, "recive"),
+        (2, "send")
+    ]  
+    action = models.CharField(max_length=1, choices=TRANSACTION_TYPE)
+    STATE_TYPE = [
+        (1, "pending"),
+        (2, "done")
+    ]
+    state = models.CharField(max_length=1, choices=TRANSACTION_TYPE, default=1)
+    
     def __str__(self):
         return f"{self.trigger}: {self.created_time} - {self.expire_time}"
+
+
+class IntrestRate(models.Model):
+    rate = models.FloatField()
+    created_time = models.DateTimeField(default=datetime.datetime.now(), editable=False)
+
+    def __str__(self):
+        return f"{self.rate}"

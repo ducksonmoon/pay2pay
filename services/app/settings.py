@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     "core",
     "account",
     "transaction",
+    "checkin"
 ]
 
 MIDDLEWARE = [
