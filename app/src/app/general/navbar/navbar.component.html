@@ -1,0 +1,20 @@
+<mat-toolbar>
+  <span class="gap">
+    <button mat-icon-button routerLink="profile" routerLinkActive="active">
+      <mat-icon>home</mat-icon>
+    </button>
+  </span>
+
+  <span class="filler"></span>
+  <span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="info" routerLinkActive="active">
+        Info
+      </button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </span>
+</mat-toolbar>

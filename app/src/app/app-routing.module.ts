@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule, Type } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './account/register/register.component';
 import { SplashComponent } from './splash/splash.component';
@@ -8,9 +8,10 @@ import { TransactionItemsComponent } from './transaction/transaction-items/trans
 import { SendComponent } from './transaction/send/send.component';
 import { CheckComponent } from './transaction/check/check.component';
 import { ReciveComponent } from './transaction/recive/recive.component';
+import { BehaviorSubject } from 'rxjs';
 
 const routes: Routes = [
-  { path: '', component: SplashComponent },
+  { path: '', component: getHomeComponent() },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
@@ -25,3 +26,15 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+
+export function getHomeComponent(): Type<Component> {
+  const userSubject = new BehaviorSubject(
+    JSON.parse(localStorage.getItem('user')!)
+  );
+  const isLoggedIn = userSubject.value && userSubject.value.token;
+  if (isLoggedIn) {
+    return <Type<Component>>ProfileComponent;
+  } else {
+    return <Type<Component>>SplashComponent;
+  }
+}

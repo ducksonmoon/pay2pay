@@ -103,4 +103,10 @@ export class AccountService {
       })
     );
   }
+
+  isLoggedIn(): boolean {
+    const user = this.userValue;
+    const isLoggedIn = user && user.token;
+    return isLoggedIn;
+  }
 }
