@@ -52,8 +52,10 @@ export class AccountService {
       );
   }
 
-  session() {
-    return this.http.get<any[]>(`${environment.apiUrl}/auth/session/`);
+  session(email: string) {
+    return this.http.patch<any>(`${environment.apiUrl}/auth/create-session/`, {
+      email,
+    });
   }
 
   logout() {

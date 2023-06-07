@@ -1,1 +1,34 @@
-<p>passcode works!</p>
+<section>
+  <img src="/assets/images/teacher-man-login.gif" alt="teacher-man" />
+  <h2>Passcode</h2>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        [type]="hide ? 'password' : 'text'"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="errors">
+      <mat-error *ngIf="form.invalid">{{ getErrorMessage() }}</mat-error>
+    </div>
+    <button
+      mat-flat-button
+      (keyup.enter)="logUserIn()"
+      (click)="logUserIn()"
+      color="primary"
+    >
+      Login
+    </button>
+  </form>
+</section>

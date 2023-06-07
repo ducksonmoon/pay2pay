@@ -9,11 +9,13 @@ import { SendComponent } from './transaction/send/send.component';
 import { CheckComponent } from './transaction/check/check.component';
 import { ReciveComponent } from './transaction/recive/recive.component';
 import { BehaviorSubject } from 'rxjs';
+import { PasscodeComponent } from './account/passcode/passcode.component';
 
 const routes: Routes = [
   { path: '', component: getHomeComponent() },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'passcode', component: PasscodeComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'info', component: TransactionItemsComponent },
   { path: 'send', component: SendComponent },

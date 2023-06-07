@@ -6,8 +6,8 @@
       <mat-label>Enter your email</mat-label>
       <input matInput placeholder="pat@example.com" formControlName="email" />
     </mat-form-field>
-    <br />
-    <mat-form-field appearance="outline">
+    <!-- <br /> -->
+    <!-- <mat-form-field appearance="outline">
       <mat-label>Enter your password</mat-label>
       <input
         matInput
@@ -23,7 +23,7 @@
       >
         <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
       </button>
-    </mat-form-field>
+    </mat-form-field> -->
     <div class="errors">
       <mat-error *ngIf="form.invalid">{{ getErrorMessage() }}</mat-error>
     </div>
@@ -33,7 +33,7 @@
       (click)="logUserIn()"
       color="primary"
     >
-      Login
+      Enter Passcode
     </button>
   </form>
 </section>

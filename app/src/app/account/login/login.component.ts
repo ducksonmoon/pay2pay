@@ -11,7 +11,6 @@ import { AccountService } from 'src/_services/account.service';
 })
 export class LoginComponent implements OnInit {
   serverSideErrorMessages: Array<string> = [];
-  hide = true;
 
   constructor(private accountService: AccountService, private router: Router) {}
 
@@ -19,10 +18,10 @@ export class LoginComponent implements OnInit {
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5),
-    ]),
+    // password: new FormControl('', [
+    //   Validators.required,
+    //   Validators.minLength(5),
+    // ]),
   });
 
   getErrorMessage() {
@@ -32,16 +31,23 @@ export class LoginComponent implements OnInit {
 
   async logUserIn() {
     const email = this.form.controls.email.value as string;
-    const password = this.form.controls.password.value as string;
-    this.accountService.getAuthToken(email, password).subscribe({
+    this.accountService.session(email).subscribe({
       error: (e) => {
         this.serverSideErrorMessages = Object.values(e.error);
         this.form.setErrors(this.serverSideErrorMessages);
       },
-      complete: () =>
-        this.router.navigate(['/profile']).then(() => {
-          location.reload();
-        }),
+      complete: () => this.router.navigate(['/passcode', { email: email }]),
     });
+    // const password = this.form.controls.password.value as string;
+    // this.accountService.getAuthToken(email, password).subscribe({
+    //   error: (e) => {
+    //     this.serverSideErrorMessages = Object.values(e.error);
+    //     this.form.setErrors(this.serverSideErrorMessages);
+    //   },
+    //   complete: () =>
+    //     this.router.navigate(['/profile']).then(() => {
+    //       location.reload();
+    //     }),
+    // });
   }
 }

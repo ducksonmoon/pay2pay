@@ -9,7 +9,6 @@ import { AccountService } from 'src/_services/account.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  hide = true;
   serverSideErrorMessages: Array<string> = [];
 
   constructor(private accountService: AccountService, private router: Router) {}
@@ -17,10 +16,6 @@ export class RegisterComponent implements OnInit {
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     name: new FormControl('', [Validators.required, Validators.maxLength(30)]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5),
-    ]),
   });
 
   getErrorMessage() {
@@ -35,26 +30,18 @@ export class RegisterComponent implements OnInit {
   create(): void {
     const name = this.form.controls.name.value as string;
     const email = this.form.controls.email.value as string;
-    const password = this.form.controls.password.value as string;
 
     this.accountService
       .register({
         name,
         email,
-        password,
       })
       .subscribe({
         error: (e) => {
           this.serverSideErrorMessages = Object.values(e.error);
           this.form.setErrors(this.serverSideErrorMessages);
         },
-        complete: () => {
-          this.accountService.getAuthToken(email, password).subscribe({
-            complete: () => {
-              this.router.navigate(['/profile']);
-            },
-          });
-        },
+        complete: () => this.router.navigate(['/passcode', { email: email }]),
       });
   }
 }
