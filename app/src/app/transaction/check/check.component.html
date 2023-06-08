@@ -1,14 +1,31 @@
-<section>
-  <p>
-    You are transfering
-    <strong style="color: #98d8aa"
-      >{{ currentTransaction?.amount }} USDT</strong
-    >
-    to our wallet
-  </p>
-  <p>Please wait for Tron's network validation</p>
-  <strong>{{ clock }}</strong>
-</section>
-<main>
-  <div class="ripple" style="filter: hue-rotate(120deg)"></div>
-</main>
+<div class="page">
+  <section>
+    <p>
+      You are transfering
+      <strong style="color: #98d8aa"
+        >{{ currentTransaction?.amount }} USDT</strong
+      >
+      to our wallet
+    </p>
+    <p>Please wait for Tron's network validation</p>
+    <strong>{{ clock }}</strong>
+  </section>
+
+  <main>
+    <div
+      *ngIf="!isDone"
+      class="ripple"
+      style="filter: hue-rotate(120deg)"
+    ></div>
+    <div *ngIf="isDone">
+      <img
+        src="assets/images/success.png"
+        style="margin-top: 20%"
+        height="100px"
+        width="100px"
+      />
+      <br />
+      <p style="margin-top: 3%; color: white">Successfully Recived.</p>
+    </div>
+  </main>
+</div>

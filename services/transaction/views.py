@@ -61,9 +61,10 @@ class TransactionCheck(APIView):
         if not transaction:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        is_alive = transaction.expire_time >= timezone.now()
-        if not is_alive:
-            return Response(status=status.HTTP_410_GONE)
+        # is_alive = transaction.expire_time >= timezone.now()
+        # print(transaction.created_time, timezone.now())
+        # if not is_alive:
+        #     return Response(status=status.HTTP_410_GONE)
 
         if self.check_wallet(transaction):
             return Response(status=status.HTTP_202_ACCEPTED)

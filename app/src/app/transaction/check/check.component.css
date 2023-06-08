@@ -33,10 +33,9 @@
 }
 
 
-
 main {
     margin: 0;
-    height: 100vh;
+    height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,11 +43,12 @@ main {
 }
 
 section {
-    position: absolute;
-    top: 20%;
     color: white;
-    -ms-transform: translateY(-20%);
-    transform: translateY(-20%);
-    height: 20vh;
-    margin-left: 12%;
+    padding-bottom: 20%;
+}
+
+.page {
+    background-color: #212a3e;
+    height: 100vh;
+    padding-top: 10%;
 }

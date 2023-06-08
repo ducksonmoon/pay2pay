@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CheckService } from './check.service';
 
 @Component({
   selector: 'app-check',
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./check.component.css'],
 })
 export class CheckComponent implements OnInit {
-  public currentTransaction: { amount: string } | undefined;
-  public timer: NodeJS.Timer | undefined;
+  public currentTransaction: { amount: string; ref: string };
+  public timer: NodeJS.Timer;
   public timeLeft = 900;
+  public isDone = false;
+  private requestTimer: NodeJS.Timer;
 
   get clock() {
     const minutes = Math.floor(this.timeLeft / 60);
@@ -18,7 +21,7 @@ export class CheckComponent implements OnInit {
     return `${minutes} : ${formatedSeconds}`;
   }
 
-  constructor() {}
+  constructor(private service: CheckService) {}
 
   ngOnInit(): void {
     this.currentTransaction =
@@ -31,8 +34,19 @@ export class CheckComponent implements OnInit {
       this.timeLeft -= 1;
     }, 1000);
 
+    this.requestTimer = setInterval(() => {
+      this.service
+        .check({ ref: this.currentTransaction.ref })
+        .subscribe((res) => {
+          this.isDone = true;
+          clearInterval(this.requestTimer);
+          clearInterval(this.timer);
+        });
+    }, 5000);
+
     setTimeout(() => {
       clearInterval(this.timer);
+      clearInterval(this.requestTimer);
     }, 900000);
   }
 }

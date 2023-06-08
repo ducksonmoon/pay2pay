@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { environment } from 'src/environments/environment';
+import { TriggerModel } from './send.model';
 
 @Injectable({ providedIn: 'root' })
 export class SendService {
@@ -13,7 +14,7 @@ export class SendService {
     action: number;
     receiver: string;
   }) {
-    return this.http.post<any[]>(
+    return this.http.post<TriggerModel>(
       `${environment.apiUrl}/transaction/trigger/`,
       payload
     );

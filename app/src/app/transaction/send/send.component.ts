@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Router } from '@angular/router';
 import { SendService } from './send.service';
+import { TriggerModel } from './send.model';
 
 @Component({
   selector: 'app-send',
@@ -53,13 +54,14 @@ export class SendComponent implements OnInit {
           action: 2,
           receiver: this.walletAdress,
         })
-        .subscribe(() => {
+        .subscribe((res: TriggerModel) => {
           localStorage.setItem(
             'currentTransaction',
             JSON.stringify({
               amount: this.form.controls.amount.value,
               id: this.form.controls.transactionID.value,
               completed: false,
+              ref: res.ref,
             })
           );
 

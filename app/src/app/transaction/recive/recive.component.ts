@@ -22,8 +22,8 @@ export class ReciveComponent implements OnInit {
   submit() {
     this.service
       .trigger({
-        receiver: this.form.controls.address.value || '',
-        amount: Number(this.form.controls.amount.value) || 0,
+        receiver: this.form.controls.address.value as string,
+        amount: Number(this.form.controls.amount.value),
         action: 1,
         txid: '1',
       })
