@@ -16,8 +16,7 @@ main {
 
 .box {
     position: relative;
-    top: 30%;
-    transform: translateY(-30%);
+    top: 40px;
 }
 
 mat-form-field,

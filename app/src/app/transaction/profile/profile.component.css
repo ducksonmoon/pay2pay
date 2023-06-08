@@ -3,7 +3,8 @@ main{
 }
 
 .action{
-  height: 22vh;
+  padding-top: 20px;
+  margin: 0px 0px 12px 0px;
   background-color: #212A3E;
 }
 
