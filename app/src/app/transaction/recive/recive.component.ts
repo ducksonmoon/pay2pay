@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReciveService } from './recive.service';
 
 @Component({
   selector: 'app-recive',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ReciveComponent implements OnInit {
   public isSubmited = false;
 
-  constructor() {}
+  constructor(private service: ReciveService) {}
 
   ngOnInit(): void {}
 
@@ -19,6 +20,15 @@ export class ReciveComponent implements OnInit {
   });
 
   submit() {
-    this.isSubmited = true;
+    this.service
+      .trigger({
+        receiver: this.form.controls.address.value || '',
+        amount: Number(this.form.controls.amount.value) || 0,
+        action: 1,
+        txid: '1',
+      })
+      .subscribe({
+        complete: () => (this.isSubmited = true),
+      });
   }
 }

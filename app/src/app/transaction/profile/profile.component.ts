@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from './profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,18 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  ngOnInit(): void {}
+  constructor(private service: ProfileService) {}
 
-  public transactions: { from: string; amount: string; to: string }[] = [
-    {
-      from: 'TF1bYz1BE4n6zo2D4J2kDRK8MuqfbaCHgu',
-      to: 'TF1bYz1BE4n6zo2D4J2kDRK8MuqfbaCHgu',
-      amount: '15.28',
-    },
-    {
-      from: 'TF1bYz1BE4n6zo2D4J2kDRK8MuqfbaCHgu',
-      to: 'TF1bYz1BE4n6zo2D4J2kDRK8MuqfbaCHgu',
-      amount: '15.28',
-    },
-  ];
+  public transactions: {
+    amount: string;
+    receiver: string;
+    state: number;
+    formatted_date: string;
+  }[] = [];
+
+  ngOnInit(): void {
+    this.service.transactions().subscribe((res) => {
+      this.transactions.push(...res);
+    });
+  }
 }

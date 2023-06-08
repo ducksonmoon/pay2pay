@@ -1,55 +1,28 @@
-/* mat-form-field,
-a {
-  width: 100%;
-}
-
-
-
-.main-profile {
-  min-width: 300px;
-  height: 100vh;
-}
-
-.process {
-  margin-top: 10px;
-  min-height: 300px;
-  padding: 5%;
-  background-color: #f6fbf4;
-  border-radius: 25px 25px 25px 25px;
-}
-
-.inverted-border-radius {
-  background-color: #f6fbf4;
-  padding: 2%;
-  margin-bottom: 10px;
-  border-radius: 25px 25px 25px 0;
-} */
-
 main{
   background-color: #212A3E;
 }
 
 .action{
-  height: 35vh;
+  height: 22vh;
   background-color: #212A3E;
 }
 
 .info{
   background-color: #F1F6F9;
-  height: 65vh;
+  height: 75vh;
   border-radius: 20px 20px 0 0;
 }
 
 .balance {
   position: relative;
   color: white;
-  top: 30%;
+  top: 10%;
 }
 
 .buttons {
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 15%;
+  transform: translateY(-15%);
 }
 
 .buttons button:last-child {
@@ -87,7 +60,7 @@ button {
 .badge {
   background-color: #98D8AA;
   color: white;
-  padding: 1%;
+  padding: 2%;
   border-radius: 10px 10px 10px 10px;
 }
 

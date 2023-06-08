@@ -8,6 +8,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import generics
 
 from core.models import Transaction
 from transaction.serializers import TransactionSerializer
@@ -68,6 +69,16 @@ class TransactionCheck(APIView):
             return Response(status=status.HTTP_202_ACCEPTED)
 
         return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class ProfileTransactions(generics.ListAPIView):
+    serializer_class = TransactionSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        
+        return Transaction.objects.filter(trigger=user)
+
 
 
 def get_balance():

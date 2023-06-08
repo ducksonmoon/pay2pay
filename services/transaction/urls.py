@@ -6,4 +6,5 @@ urlpatterns = [
     path('trigger/', views.TransactionTrigger.as_view()),
     path('trigger/<int:pk>/', views.TransactionTrigger.as_view()),
     path('check/', views.TransactionCheck.as_view()),
+    path('profile/', views.ProfileTransactions.as_view())
 ]
