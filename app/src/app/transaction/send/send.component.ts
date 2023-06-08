@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { Router } from '@angular/router';
+import { SendService } from './send.service';
 
 @Component({
   selector: 'app-send',
@@ -17,6 +19,7 @@ export class SendComponent implements OnInit {
   public timeLeft = 900;
   public timer: NodeJS.Timer | undefined;
   public spinner: NodeJS.Timer | undefined;
+  public error = '';
 
   get clock() {
     const minutes = Math.floor(this.timeLeft / 60);
@@ -26,7 +29,12 @@ export class SendComponent implements OnInit {
     return `${minutes} : ${formatedSeconds}`;
   }
 
-  constructor(private clipboard: Clipboard, private _snackBar: MatSnackBar) {}
+  constructor(
+    private clipboard: Clipboard,
+    private _snackBar: MatSnackBar,
+    private router: Router,
+    private service: SendService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -36,61 +44,43 @@ export class SendComponent implements OnInit {
   });
 
   startTransaction() {
-    localStorage.setItem(
-      'currentTransaction',
-      JSON.stringify({
-        amount: this.form.controls.amount.value,
-        id: this.form.controls.transactionID.value,
-        completed: false,
-      })
-    );
+    if (this.form.controls.transactionID.value) {
+      this.error = '';
+      this.service
+        .send({
+          amount: Number(this.form.controls.amount.value),
+          txid: this.form.controls.transactionID.value as string,
+          action: 2,
+          receiver: this.walletAdress,
+        })
+        .subscribe(() => {
+          localStorage.setItem(
+            'currentTransaction',
+            JSON.stringify({
+              amount: this.form.controls.amount.value,
+              id: this.form.controls.transactionID.value,
+              completed: false,
+            })
+          );
+
+          this.router.navigate(['/send/check']);
+        });
+    } else {
+      this.error = 'Value Must be Entered';
+    }
   }
 
   triggerTransaction() {
-    this.transactionTrigerd = true;
+    if (this.form.controls.amount.value) {
+      this.error = '';
+      this.transactionTrigerd = true;
+    } else {
+      this.error = 'Value Must be Entered';
+    }
   }
 
   copyWalletAdress() {
     this.clipboard.copy(this.walletAdress);
     this._snackBar.open('copied.', 'OK');
-  }
-
-  checkIfTransferCompleted() {
-    this.waitForTransaction = true;
-
-    this.spinner = setInterval(() => {
-      if (true) {
-        this.success();
-      }
-      this.spinnerTime += 1;
-    }, 9000);
-
-    this.timer = setInterval(() => {
-      this.spinnerTime += 1;
-
-      this.timeLeft -= 1;
-    }, 1000);
-
-    setTimeout(() => {
-      this.cancelTransfer();
-
-      this.transactionTrigerd = false;
-      this.waitForTransaction = false;
-    }, 900000);
-  }
-
-  cancelTransfer() {
-    clearInterval(this.spinner);
-    clearInterval(this.timer);
-
-    this.spinnerTime = 0;
-    this.timeLeft = 900;
-
-    this.waitForTransaction = false;
-  }
-
-  private success() {
-    this.cancelTransfer();
-    this.transactionCompleted = true;
   }
 }
