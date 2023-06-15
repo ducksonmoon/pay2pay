@@ -12,6 +12,7 @@ import { PasscodeComponent } from './account/passcode/passcode.component';
 import { InfoComponent } from './account/info/info.component';
 
 const routes: Routes = [
+  { path: 'splash', component: SplashComponent },
   { path: '', component: getHomeComponent() },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

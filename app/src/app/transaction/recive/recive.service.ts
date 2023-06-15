@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 
@@ -17,5 +18,9 @@ export class ReciveService {
       `${environment.apiUrl}/transaction/trigger/`,
       payload
     );
+  }
+
+  info(): Observable<any> {
+    return this.http.get<any[]>(`${environment.apiUrl}/auth/info/`);
   }
 }

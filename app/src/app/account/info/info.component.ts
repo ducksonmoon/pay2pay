@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { InfoService } from './info.service';
 
 export enum Verification {
-  'No Request',
-  'PENDING',
-  'Verified',
+  noRequest = 1,
+  pending = 2,
+  verified = 3,
 }
 
 @Component({
@@ -16,7 +16,7 @@ export class InfoComponent implements OnInit {
   public email: string;
   public _verified: Verification;
   get verified() {
-    if (this._verified !== Verification.Verified) {
+    if (this._verified !== Verification.verified) {
       return 'PENDING';
     }
 

@@ -20,6 +20,9 @@
           <input matInput rows="6" formControlName="address" />
         </mat-form-field>
       </form>
+      <div class="errors">
+        <mat-error *ngIf="message !== ''">{{ errorMessage }}</mat-error>
+      </div>
       <button mat-stroked-button color="primary" (click)="submit()">
         Submit
       </button>
