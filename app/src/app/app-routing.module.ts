@@ -4,12 +4,12 @@ import { RegisterComponent } from './account/register/register.component';
 import { SplashComponent } from './splash/splash.component';
 import { LoginComponent } from './account/login/login.component';
 import { ProfileComponent } from './transaction/profile/profile.component';
-import { TransactionItemsComponent } from './transaction/transaction-items/transaction-items.component';
 import { SendComponent } from './transaction/send/send.component';
 import { CheckComponent } from './transaction/check/check.component';
 import { ReciveComponent } from './transaction/recive/recive.component';
 import { BehaviorSubject } from 'rxjs';
 import { PasscodeComponent } from './account/passcode/passcode.component';
+import { InfoComponent } from './account/info/info.component';
 
 const routes: Routes = [
   { path: '', component: getHomeComponent() },
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'passcode', component: PasscodeComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'info', component: TransactionItemsComponent },
+  { path: 'info', component: InfoComponent },
   { path: 'send', component: SendComponent },
   { path: 'recive', component: ReciveComponent },
   { path: 'send/check', component: CheckComponent },

@@ -55,3 +55,9 @@ class IntrestRate(models.Model):
 
     def __str__(self):
         return f"{self.rate}"
+
+
+class ProfileAssesment(models.Model):
+    picture = models.ImageField(upload_to ='uploads/')
+    user = models.ForeignKey(Account, null=True, on_delete=models.SET_NULL)
+    created_time = models.DateTimeField(default=datetime.datetime.now(), editable=False)

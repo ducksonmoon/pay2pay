@@ -1,0 +1,57 @@
+<section class="profile-info">
+  <b>Personal Information:</b>
+  <p class="info-text">
+    <!-- <span style="display: inline-flex; align-items: center">
+      <mat-icon style="margin-right: 5px">info</mat-icon>
+      Abbas Moradi
+    </span> -->
+    <br />
+    <span style="display: inline-flex; align-items: center">
+      <mat-icon style="margin-right: 5px"> mail_outline</mat-icon>
+      {{ email }}
+    </span>
+    <span style="display: inline-flex; align-items: center">
+      <mat-icon style="margin-right: 5px">verified_user</mat-icon>
+      PENDING
+    </span>
+  </p>
+
+  <div class="enter-data">
+    <b>Identification:</b>
+    <br />
+    <small>
+      For reciving action you need to verify your account by uploading your
+      <span class="important-text">Passport</span> or
+      <span class="important-text">Identity Certificate</span>.
+    </small>
+    <input
+      #fileInput
+      hidden="true"
+      type="file"
+      (change)="processFile(fileInput)"
+      accept="image/*"
+    />
+    <div class="upload">
+      <button
+        mat-flat-button
+        color="primary"
+        style="width: 100%; margin-top: 10px"
+        (click)="fileInput.click()"
+      >
+        Choose Image
+      </button>
+    </div>
+
+    <div class="file-name">
+      <small>{{ file?.name || "No Image Chosen." }}</small>
+    </div>
+    <button
+      mat-stroked-button
+      color="primary"
+      style="width: 100%; margin-top: 10px"
+      (click)="uploadFile()"
+    >
+      Upload
+    </button>
+  </div>
+</section>

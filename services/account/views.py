@@ -9,17 +9,30 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
-from account.serializers import AccountSerializer, SessionSerializer
-from core.models import Account
+from account.serializers import AccountSerializer, SessionSerializer, ProfileAssesmentSerializer
+from core.models import Account, ProfileAssesment
 
 
 class AccountViewSet(viewsets.ModelViewSet):
     queryset = Account.objects.all().order_by('-date_joined')
     serializer_class = AccountSerializer
+
+    def retrieve(self, request, pk=None):
+        queryset = Account.objects.all()
+        user = get_object_or_404(queryset, email=request.user.email)
+        serializer = self.serializer_class(user)
+        return Response(serializer.data)
+
+
+class ProfileAssesmentView(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
+    queryset = ProfileAssesment.objects.all()
+    serializer_class = ProfileAssesmentSerializer
 
 
 class AccountSessionView(generics.UpdateAPIView):

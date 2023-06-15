@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from .utils import send_email, reset_password
-from core.models import Account, Wallet
+from core.models import Account, Wallet, ProfileAssesment
 
 
 class AccountSerializer(serializers.ModelSerializer):
@@ -19,6 +19,14 @@ class AccountSerializer(serializers.ModelSerializer):
         wallet = Wallet.objects.create(owner=account)
 
         return account
+
+class ProfileAssesmentSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
+    class Meta:
+        model = ProfileAssesment
+        fields = ("picture", "user")
+        read_only_fields = ("user",)
 
 
 class SessionSerializer(serializers.ModelSerializer):

@@ -26,6 +26,7 @@ import { NavbarComponent } from './general/navbar/navbar.component';
 import { CheckComponent } from './transaction/check/check.component';
 import { ReciveComponent } from './transaction/recive/recive.component';
 import { PasscodeComponent } from './account/passcode/passcode.component';
+import { InfoComponent } from './account/info/info.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { PasscodeComponent } from './account/passcode/passcode.component';
     CheckComponent,
     ReciveComponent,
     PasscodeComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,

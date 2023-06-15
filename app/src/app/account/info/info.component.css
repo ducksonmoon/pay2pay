@@ -1,0 +1,28 @@
+.profile-info{
+    text-align: start;
+    position: absolute;
+    top: 280px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info-text{
+    margin-top: 5px;
+}
+
+.enter-data{
+    margin-top: 50px;
+}
+
+.file-name{
+    margin-top: 8px;
+    padding: 2%;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #e1e9e1;
+}
+
+.important-text{
+    color: #302a75;
+    font-family: monospace;
+    font-weight: bolder;
+}
