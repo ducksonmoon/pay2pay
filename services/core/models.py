@@ -1,5 +1,6 @@
 import uuid
 import datetime
+import os
 
 from django.db import models
 from django.contrib.auth.models import AbstractUser
@@ -64,7 +65,12 @@ class IntrestRate(models.Model):
         return f"{self.rate}"
 
 
+def get_file_path(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('uploads/', filename)
+
 class ProfileAssesment(models.Model):
-    picture = models.ImageField(upload_to ='uploads/')
+    picture = models.ImageField(upload_to=get_file_path)
     user = models.ForeignKey(Account, null=True, on_delete=models.SET_NULL)
     created_time = models.DateTimeField(default=datetime.datetime.now(), editable=False)
