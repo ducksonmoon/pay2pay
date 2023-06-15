@@ -18,7 +18,7 @@ DEBUG = True
 # ALLOWED_HOSTS=['*']
 # CORS_ORIGIN_ALLOW_ALL = True
 
-ALLOWED_HOSTS = ["http://localhost:4200", "localhost"]
+ALLOWED_HOSTS = ["http://localhost:4200", "localhost", "https://wallet.iran.liara.run"]
 CORS_ALLOW_METHODS = (
     "DELETE",
     "GET",
@@ -40,8 +40,8 @@ CORS_ALLOW_HEADERS = (
     "Access-Control-Allow-Origin",
 )
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = ("http://localhost:4200",)
-CSRF_TRUSTED_ORIGINS = ["http://localhost:4200"]
+CORS_ORIGIN_WHITELIST = ("http://localhost:4200", "https://wallet.iran.liara.run")
+CSRF_TRUSTED_ORIGINS = ["http://localhost:4200", "https://wallet.iran.liara.run"]
 CSRF_USE_SESSIONS = False
 CSRF_COOKIE_HTTPONLY = False  # this is the default, and should be kept this way
 CSRF_COOKIE_NAME = 'XSRF-TOKEN'
