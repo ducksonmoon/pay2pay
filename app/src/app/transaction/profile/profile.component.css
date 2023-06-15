@@ -39,15 +39,10 @@ button {
 }
 
 .img_run {
-  position: relative;
+  height: 190px;
+  width: 180px;  /* position: relative;
   top: 30%;
-  transform: translateY(-30%);
-}
-
-.message {
-  position: relative;
-  top: 30%;
-  transform: translateY(-30%);
+  transform: translateY(-30%); */
 }
 
 .table {
