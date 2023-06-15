@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoService } from './info.service';
 
+export enum Verification {
+  'No Request',
+  'PENDING',
+  'Verified',
+}
+
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
@@ -8,12 +14,27 @@ import { InfoService } from './info.service';
 })
 export class InfoComponent implements OnInit {
   public email: string;
+  public _verified: Verification;
+  get verified() {
+    if (this._verified !== Verification.Verified) {
+      return 'PENDING';
+    }
+
+    return 'Verified';
+  }
+
   public file: File;
 
   constructor(private service: InfoService) {}
 
   ngOnInit(): void {
-    this.service.info().subscribe((res: any) => (this.email = res.email));
+    this.service
+      .info()
+      .subscribe(
+        (res: any) => (
+          (this.email = res.email), (this._verified = res.verified)
+        )
+      );
   }
 
   // inputChange(fileInputEvent: any) {

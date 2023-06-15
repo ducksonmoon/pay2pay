@@ -7,8 +7,8 @@ from core.models import Account, Wallet, ProfileAssesment
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ("email",)
-        read_only_fields = ("id",)
+        fields = ("email", "verified")
+        read_only_fields = ("id", "verified")
 
 
     def create(self, validated_data):

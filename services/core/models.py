@@ -11,6 +11,13 @@ from core.managers import CustomUserManager
 class Account(AbstractUser):
     username = None
     email = models.EmailField(_("email address"), unique=True)
+    VERFICATION = [
+        (1, "No Request"),
+        (2, "Pending"),
+        (3, "Verified")
+    ]
+    verified = models.CharField(max_length=1, choices=VERFICATION, default=1)
+    
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
