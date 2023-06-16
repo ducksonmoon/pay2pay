@@ -14,11 +14,14 @@ class AccountSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         """ Create a new user with encrypted password and return it. """
         validated_data['email'] = validated_data['email'].lower()
-        account = Account.objects.create_user(**validated_data)
-        account = reset_password(account)
-        wallet = Wallet.objects.create(owner=account)
-
-        return account
+        try:
+            account = Account.objects.create_user(**validated_data)
+            account = reset_password(account)
+            wallet = Wallet.objects.create(owner=account)
+            return account
+        except Exception as e:
+            error = {'message': ",".join(e.args) if len(e.args) > 0 else 'Unknown Error'}
+            raise serializers.ValidationError(error)
 
 class ProfileAssesmentSerializer(serializers.ModelSerializer):
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
