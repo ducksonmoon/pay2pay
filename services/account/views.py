@@ -51,6 +51,7 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
+        request.data['username'] = request.data['username'].lower()
         serializer = self.serializer_class(data=request.data,
                                            context={'request': request})
         serializer.is_valid(raise_exception=True)
