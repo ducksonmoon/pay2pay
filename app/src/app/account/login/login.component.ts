@@ -10,7 +10,8 @@ import { AccountService } from 'src/_services/account.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  serverSideErrorMessages: Array<string> = [];
+  public loading = false;
+  public serverSideErrorMessages: Array<string> = [];
 
   constructor(private accountService: AccountService, private router: Router) {}
 
@@ -31,12 +32,17 @@ export class LoginComponent implements OnInit {
 
   async logUserIn() {
     const email = this.form.controls.email.value as string;
+    this.loading = true;
     this.accountService.session(email).subscribe({
       error: (e) => {
         this.serverSideErrorMessages = Object.values(e.error);
         this.form.setErrors(this.serverSideErrorMessages);
+        this.loading = false;
       },
-      complete: () => this.router.navigate(['/passcode', { email: email }]),
+      complete: () => {
+        this.router.navigate(['/passcode', { email: email }]);
+        this.loading = false;
+      },
     });
     // const password = this.form.controls.password.value as string;
     // this.accountService.getAuthToken(email, password).subscribe({

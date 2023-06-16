@@ -32,6 +32,7 @@
       (keyup.enter)="logUserIn()"
       (click)="logUserIn()"
       color="primary"
+      [disabled]="loading"
     >
       Enter Passcode
     </button>

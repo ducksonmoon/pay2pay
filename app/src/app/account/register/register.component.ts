@@ -9,7 +9,8 @@ import { AccountService } from 'src/_services/account.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  serverSideErrorMessages: Array<string> = [];
+  public loading = false;
+  public serverSideErrorMessages: Array<string> = [];
 
   constructor(private accountService: AccountService, private router: Router) {}
 
@@ -30,7 +31,7 @@ export class RegisterComponent implements OnInit {
   create(): void {
     const name = this.form.controls.name.value as string;
     const email = this.form.controls.email.value as string;
-
+    this.loading = true;
     this.accountService
       .register({
         name,
@@ -40,8 +41,12 @@ export class RegisterComponent implements OnInit {
         error: (e) => {
           this.serverSideErrorMessages = Object.values(e.error);
           this.form.setErrors(this.serverSideErrorMessages);
+          this.loading = false;
         },
-        complete: () => this.router.navigate(['/passcode', { email: email }]),
+        complete: () => {
+          this.router.navigate(['/passcode', { email: email }]);
+          this.loading = false;
+        },
       });
   }
 }
