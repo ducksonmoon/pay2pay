@@ -105,15 +105,19 @@ WSGI_APPLICATION = "app.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    # "default": {
-    #     "ENGINE": "django.db.backends.sqlite3",
-    #     "NAME": BASE_DIR / "db.sqlite3",
-    # }
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+        }
+    }
 
 
 # Password validation
@@ -170,8 +174,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 #gmail_send/settings.py
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'mehrshadbaqerzadegan@gmail.com'
-EMAIL_HOST_PASSWORD = 'hqbakxhvswrgtpuy' #past the key or password app here
+# EMAIL_HOST_USER = 'mehrshadbaqerzadegan@gmail.com'
+# EMAIL_HOST_PASSWORD = 'hqbakxhvswrgtpuy' #past the key or password app here
+EMAIL_HOST_USER = 'AlphaRobo.OTP@gmail.com'
+EMAIL_HOST_PASSWORD = 'dvaehhevlxejovtp' #past the key or password app here
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'default from email'

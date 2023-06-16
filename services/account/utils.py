@@ -21,7 +21,10 @@ def send_email(new_password, email):
 def message_generator(new_password):
     msg = f'''
     Hi,
-    Your Password Is {new_password}
+    Your Login Password:
+    {new_password}
+
+    Alpha Robo
     '''
 
     return msg

@@ -37,7 +37,7 @@ class ProfileAssesmentView(viewsets.ModelViewSet):
 
 class AccountSessionView(generics.UpdateAPIView):
     def get_object(self):
-        return get_object_or_404(Account, email=self.request.data.get('email'))
+        return get_object_or_404(Account, email=self.request.data.get('email').lower())
 
     def get_serializer_class(self):
         return SessionSerializer
