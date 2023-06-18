@@ -16,5 +16,6 @@ urlpatterns = [
     path('auth/', include('account.urls')),
     path('transaction/', include('transaction.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('check-in/', include('checkin.urls'))
+    path('check-in/', include('checkin.urls')),
+    path('verification/', include('verification.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

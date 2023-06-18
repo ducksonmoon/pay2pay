@@ -18,7 +18,7 @@ DEBUG = True
 # ALLOWED_HOSTS=['*']
 # CORS_ORIGIN_ALLOW_ALL = True
 
-ALLOWED_HOSTS = ["http://localhost:4200", "localhost", "https://wallet.iran.liara.run"]
+ALLOWED_HOSTS = ["http://localhost:4200", "localhost", "https://wallet.iran.liara.run", "127.0.0.1"]
 CORS_ALLOW_METHODS = (
     "DELETE",
     "GET",
@@ -65,7 +65,8 @@ INSTALLED_APPS = [
     "core",
     "account",
     "transaction",
-    "checkin"
+    "checkin",
+    "verification"
 ]
 
 MIDDLEWARE = [
