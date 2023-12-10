@@ -7,7 +7,7 @@
 
 
 
-An application from transfering based on TRC20 network to selected network
+An application for transfering based on TRC20 network to selected network
 
 #1             |  #2         |  #3          |  #4
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
